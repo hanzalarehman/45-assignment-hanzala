@@ -30,8 +30,8 @@
 // 6. Stripping Names: Store a person’s name, and include some whitespace characters at the beginning and end of the name. Make sure you use each
 // character combination, "\t" and "\n", at least once. Print the name once, so the whitespace around the name is displayed. Then print the name after striping the white spaces.
 
-// let name_1:string="Hamza/trehman"
-// let name_2:string="Hamza/nRehman"
+// let name_1:string="Hamza\trehman"
+// let name_2:string="Hamza\nnRehman"
 // console.log(name_1)
 // console.log(name_2)
 
@@ -111,12 +111,13 @@
 // • Print a second set of invitation messages, one for each person who is still
 // in your list.
 
-// var guest:string[]=["HAMZA","ALI","RANA"]
+//  var guest:string[]=["HAMZA","ALI","RANA"]
 // console.log(guest)
-// var not_attend:string="ALI"
-// console.log(`${not_attend} cannot attend`)
-// var newguest:string="UMER"
-// guest[guest.indexOf(not_attend)]=newguest
+//  var not_attend:string="ALI"
+//  console.log(`${not_attend} cannot attend`)
+//  var newguest:string="UMER"
+//  //guest[guest.indexOf(not_attend)]=newguest
+// guest[1]=newguest
 // guest.map((item)=>console.log(`MR ${item}, you are invited to dinner`))
 
 
@@ -148,7 +149,8 @@
 // //console.log(guest)
 // //FOR END
 // guest.push("ZIA")
-//console.log(guest)
+// console.log(guest)
+// guest.map((i)=>console.log(`Inviting MR ${i} to dinner.`))
 
 // 17. Shrinking Guest List: You just found out that your new dinner table won’t arrive in time for the dinner, and you have space for only two guests.
 
@@ -674,6 +676,7 @@
 
 // // Call the function with a specific size and message
 // make_shirt('XL', 'I love TypeScript!');
+
 // 37. Large Shirts: Modify the make_shirt() function so that shirts are large
 // by default with a message that reads I love TypeScript. Make a large shirt and a
 // medium shirt with the default message, and a shirt of any size with a different
@@ -715,12 +718,17 @@
 
 // Call your function with at least three city-country pairs, and print the value
 // that’s returned.
-// function city_country(city:string,country:string):void{
-//      console.log(`${city},${country}`)
+// function city_country(city:string,country:string):string{
+//      return  `${city}, ${country}`;
+
 // }
-// city_country("karachi","pakistan")
-// city_country("berlin","germany")
-// city_country("dahka","bangladesh")
+
+// let a=city_country("karachi","pakistan")
+// let b=city_country("berlin","germany")
+// let c=city_country("dahka","bangladesh")
+// console.log(a)
+// console.log(b)
+// console.log(c)
 
 // 40. Album: Write a function called make_album() that builds a Object
 // describing a music album. The function should take in an artist name and an
@@ -760,7 +768,7 @@
 
 //41. Magicians: Make a array of magician’s names. Pass the array to a function
 //called show_magicians(), which prints the name of each magician in the array
-// Function to show magicians
+// // Function to show magicians
 // function show_magicians(magicians: string[]): void {
 //     for (const magician of magicians) {
 //         console.log(magician);
@@ -820,7 +828,7 @@
 //     }
 // }
 
-// // Function to make magicians great without modifying the original array
+// Function to make magicians great without modifying the original array
 // function make_great(magicians: string[]): string[] {
 //     const greatMagicians: string[] = [];
 
@@ -851,23 +859,24 @@
 // items as the function call provides, and it should print a summary of the sandwich
 // that is being ordered. Call the function three times, using a different number
 // of arguments each time
-// function sandwhich(...items: string[]):void{
-//   console.log("summary:");
-//   if(items.length===0){
-//     console.log(" -you ordered an empty sandwhich.please add some items.")
-//   }
+function sandwhich(...items: string[]):void{
+  console.log("summary:");
+  if(items.length  === 0){
+    console.log(" -you ordered an empty sandwhich.please add some items.")
+  }
              
-//     else{
-//       items.forEach((items,i)=>{
-//          console.log(`${i+1}.${items}`)
-//       })
-//     }
-//  console.log("/n")
+    else{
+      items.forEach((item,i)=>{
+        console.log(`${i+1}.${item}`)
+      })
+    }
+ console.log("\n")
 
-// }
-// sandwhich("pepproni","mushroom","bellpeper")
-// sandwhich("pepproni","mushroom","bellpeper")
-// sandwhich("pepproni","ketup","bellpeper")
+ }
+sandwhich()
+sandwhich("pepproni","mushroom","bellpeper")
+sandwhich("pepproni","mushroom","bellpeper")
+sandwhich("pepproni","ketup","bellpeper")
 // 45. Cars: Write a function that stores information about a car in a Object.
 // The function should always receive a manufacturer and a model name. It
 // should then accept an arbitrary number of keyword arguments. Call the function
@@ -876,19 +885,21 @@
 // Print the Object that’s returned to make sure all the information was
 // stored correctly.
 
-// function createCar(manufacturer:string,model:string,...properties:[string,any][]):any{
-//     const car:any={
-//         manufacturer,
-//         model,
-//     };
-//     for(const [key,value] of properties){
-//         car [key]  = value;
-//     }
-//     return car;
+function createCar(manufacturer:string,model:string,...properties:[string,any][]):any{
+    const car:any={
+        manufacturer,
+        model,
+    };
+    for(const [key,value] of properties){
+        car [key]  = value;
+    }
+    return car;
 
-// }
-// const mycar:string=createCar("honda","suzuki",["color","blue"],["optional feature","sunoof"],["speed","280km/hour"])
-// console.log(mycar)
+}
+const mycar:string=createCar("honda","suzuki",["color","blue"],["optional feature","sunoof"],["speed","280km/hour"])
+
+
+
 
 
 
